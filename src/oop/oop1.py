@@ -18,6 +18,7 @@
 #
 # Put a comment noting which class is the base class
 
+
 #Base Class
 class Vehicle:
     def __init__(self):
@@ -52,3 +53,4 @@ class Car(GroundVehicle):
 class Motorcycle(GroundVehicle):
     def __init__(self):
         pass
+
