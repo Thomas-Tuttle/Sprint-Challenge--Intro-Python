@@ -19,8 +19,8 @@ import csv
 class City:
     def __init__(self, name, lat, lon):
       self.name = name
-      self.lat = lat
-      self.lon = lon
+      self.lat = float(lat)
+      self.lon = float(lon)
     
     def __str__(self):
         return f"{self.name}, {self.lat}, {self.lon}"
@@ -39,7 +39,8 @@ cityreader(cities)
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 for c in cities:
-    print(c)
+    pass# print(c)
+
 
 # STRETCH GOAL!
 #
@@ -70,14 +71,34 @@ for c in cities:
 # Tucson: (32.1558,-110.8777)
 # Salt Lake City: (40.7774,-111.9301)
 
-# TODO Get latitude and longitude values from the user
 
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   # within will hold the cities that fall within the specified region
   within = []
 
-  # TODO Ensure that the lat and lon valuse are all floats
-  # Go through each city and check to see if it falls within 
-  # the specified coordinates.
+  for c in cities:
+        if (c.lat > float(lat1) and c.lat < float(lat2)) or ((c.lat < float(lat1) and c.lat > float(lat2))):
+            if (c.lon > float(lon1) and c.lon < float(lon2)) or ((c.lon < float(lon1) and c.lon > float(lon2))):
+                within.append(c)
 
   return within
+
+
+
+
+###################################################
+##### Uncomment to input your own coordinates #####
+###################################################
+
+# try:
+#     lat1 = input('Input First Latitude: ')
+#     lat2 = input('Input Second Latitude: ')
+#     lon1 = input('Input First Longitude: ')
+#     lon2 = input('Input Second Longitude: ')
+
+#     cities_within = cityreader_stretch(float(lat1), float(lon1), float(lat2), float(lon2), cities)
+#     for city in cities_within:
+#         print(city)
+
+# except:
+#     print('Enter Valid Coordinates')
